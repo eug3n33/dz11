@@ -26,7 +26,9 @@ pipline{
         }
         stage ('run docker'){
             steps{
-
+               sh 'ssh roots@130.193.39.33'
+               sh 'docker push stark77/obraz02'
+               sh 'docker-compose up -d'
             }
 
         }

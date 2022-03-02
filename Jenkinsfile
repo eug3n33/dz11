@@ -9,15 +9,25 @@ pipline{
     }
     stages {
         stage('git'){
-            git 'https://github.com/eug3n33/box.git'
+            steps{
+               git 'https://github.com/eug3n33/box.git'
+            }
         }
         stage ('build'){
-            sh 'mvn package'
+            steps{
+               sh 'mvn package'
+            }
         }
         stage ('docker image'){
-
+            steps{
+               sh 'docker build -t obraz02 .'
+               sh 'docker image tag obraz02 stark77/obraz02 && docker push stark77/obraz02'
+            }
         }
         stage ('run docker'){
+            steps{
+
+            }
 
         }
     }

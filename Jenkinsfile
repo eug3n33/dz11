@@ -9,24 +9,24 @@ pipeline {
         maven "m3"
     }
     stages {
-        stage('git'){
-            steps{
+        stage('git') {
+            steps {
                git 'https://github.com/eug3n33/box.git'
             }
         }
         stage ('build') {
-            steps{
+            steps {
                sh 'mvn package'
             }
         }
         stage ('docker image') {
-            steps{
+            steps {
                sh 'docker build -t obraz02 .'
                sh '''docker image tag obraz02 stark77/obraz02 && docker push stark77/obraz02'''
             }
         }
         stage ('run docker') {
-            steps{
+            steps {
                sh 'ssh root@130.193.39.33'
                sh 'docker push stark77/obraz02'
                sh 'docker-compose up -d'

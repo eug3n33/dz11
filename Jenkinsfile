@@ -1,6 +1,6 @@
 pipeline{
     agent{
-        docker{
+        docker {
             image 'stark77/obraz01'
         }
     }
@@ -21,12 +21,12 @@ pipeline{
         stage ('docker image'){
             steps{
                sh 'docker build -t obraz02 .'
-               sh 'docker image tag obraz02 stark77/obraz02 && docker push stark77/obraz02'
+               sh '''docker image tag obraz02 stark77/obraz02 && docker push stark77/obraz02'''
             }
         }
         stage ('run docker'){
             steps{
-               sh 'ssh roots@130.193.39.33'
+               sh 'ssh root@130.193.39.33'
                sh 'docker push stark77/obraz02'
                sh 'docker-compose up -d'
             }

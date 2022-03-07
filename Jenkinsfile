@@ -27,9 +27,7 @@ pipeline {
         }
         stage ('run docker') {
             steps {
-               sh 'ssh root@130.193.39.33'
-               sh 'docker push stark77/obraz02'
-               sh 'docker-compose up -d'
+               sh 'ssh root@130.193.39.33 << EOF docker push stark77/obraz02 EOF docker-compose up -d'
             }
 
         }

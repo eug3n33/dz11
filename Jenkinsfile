@@ -1,4 +1,4 @@
-pipline{
+pipeline{
     agent{
         docker{
             image 'stark77/obraz01/jenkins-agent'

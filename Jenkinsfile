@@ -6,7 +6,7 @@ pipeline {
     }
     tools {
         maven "m3"
-       }
+    }
     stages {
         stage('git'){
             steps{

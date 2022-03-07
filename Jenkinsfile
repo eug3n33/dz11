@@ -1,5 +1,6 @@
 pipeline{
     agent{
+        args '-v /var/run/docker.sock:/var/run/docker.sock -u root'
         docker {
             image 'stark77/obraz01'
         }

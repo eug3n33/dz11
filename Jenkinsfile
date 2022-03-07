@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'stark77/obraz01'
-            args ''
+            args '-v /var/run/docker.sock:/var/run/docker.sock'
         }
     }
     tools {

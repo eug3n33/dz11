@@ -20,7 +20,7 @@ pipeline{
         }
         stage ('docker image'){
             steps{
-               sh 'sodo apt install docker.io'
+               sh 'sudo apt install docker.io'
                sh 'docker build -t obraz02 .'
                sh '''docker image tag obraz02 stark77/obraz02 && docker push stark77/obraz02'''
             }

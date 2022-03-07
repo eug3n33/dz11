@@ -1,7 +1,8 @@
 pipeline {
     agent {
         docker {
-            image 'stark77/obraz01' args ''
+            image 'stark77/obraz01'
+            args ''
         }
     }
     tools {

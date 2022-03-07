@@ -4,9 +4,9 @@ pipeline{
             image 'stark77/obraz01' args '-v /var/run/docker.sock:/var/run/docker.sock -u root'
         }
     }
-        tools {
+    tools {
         maven "m3"
-    }
+       }
     stages {
         stage('git'){
             steps{

@@ -20,6 +20,7 @@ pipeline{
         }
         stage ('docker image'){
             steps{
+               sh 'systemctl start docker'
                sh 'docker build -t obraz02 .'
                sh '''docker image tag obraz02 stark77/obraz02 && docker push stark77/obraz02'''
             }

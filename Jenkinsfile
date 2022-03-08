@@ -21,12 +21,13 @@ pipeline {
         }
         stage ('docker image') {
             steps {
-               sh 'docker build -t obraz02 .'
+               sh 'cp /var/lib/jenkins/workspace/test-3/target/*.war /var/lib/jenkins/workspace/test-3/app && docker build -t obraz02 .'
                sh 'docker image tag obraz02 stark77/obraz02 && docker push stark77/obraz02'
             }
         }
         stage ('run docker') {
             steps {
+               sh 'ssh-keyscan -H 130.193.39.33 >> ~/.ssh/known_hosts'
                sh 'ssh root@130.193.39.33 << EOF docker push stark77/obraz02  docker-compose up -d EOF'
             }
 
